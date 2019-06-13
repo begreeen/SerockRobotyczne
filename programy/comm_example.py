@@ -8,16 +8,16 @@ from comm import *
 
 import time
 
-light_sensor = ColorSensor(INPUT_4)
+#light_sensor = ColorSensor(INPUT_4)
 number = 0
 
 # adres IP komputera, port komunikacyjny - taki sam ustawiony na komputerze
-comm = Communication('192.168.8.100', 6340)
+comm = Communication('192.168.43.247', 6340)
 
 while True:
-    light_value = light_sensor.reflected_light_intensity
+    #light_value = light_sensor.reflected_light_intensity
     number = number + 1
-
+    light_value = 24
     comm.send(light_value, 'swiatlo-1')
     comm.send(number, 'number-1')
     

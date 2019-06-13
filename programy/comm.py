@@ -19,8 +19,9 @@ class Communication:
             sys.exit()
 
     def send(self, data, name):
-        t = time.time() - self.start_time;
-        self.comm.sendall(name + ';' + str(t) + ';' + str(data) + '\n')
+        t = time.time() - self.start_time
+        str_data = '{};{};{}\r\n'.format(name, t, data)
+        self.comm.sendall(str_data.encode('utf-8'))
 
     def close(self):
         self.comm.close()
